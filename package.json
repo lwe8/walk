@@ -2,10 +2,9 @@
   "name": "@lwe8/walk",
   "version": "1.0.0",
   "description": "babel/traverse clone",
-  "main": "./src/index.cjs",
-  "types": "./src/index.d.ts",
-  "module": "./src/index.mjs",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lwe8/walk.git"
@@ -14,6 +13,7 @@
     "babel",
     "traverse"
   ],
+  "type": "module",
   "author": "Pho Thin Mg <phothinmg@disroot.org>",
   "license": "Apache-2.0",
   "bugs": {
@@ -21,18 +21,23 @@
   },
   "homepage": "https://github.com/lwe8/walk#readme",
   "devDependencies": {
-    "@types/node": "^24.3.0",
     "typescript": "^5.9.2"
   },
   "dependencies": {
     "@babel/traverse": "^7.28.3",
-    "@types/babel__traverse": "^7.28.0"
+    "@types/babel__traverse": "^7.28.0",
+    "@types/node": "^24.3.0"
   },
   "exports": {
     ".": {
-      "types": "./src/index.d.ts",
-      "require": "./src/index.cjs",
-      "import": "./src/index.mjs"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     }
   },
   "publishConfig": {
